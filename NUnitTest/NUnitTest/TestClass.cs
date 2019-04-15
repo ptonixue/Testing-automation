@@ -8,7 +8,7 @@ using NUnit.Framework;
 namespace NUnitTest
 {
     [TestFixture]
-    public class TestClass
+    public class TestOfMethods
     {
         [Test, TestCaseSource("TestCases")]
         public void multiplication(double x, double y)
@@ -42,6 +42,21 @@ namespace NUnitTest
             Assert.AreEqual(x / y, result, "wrong test {0} / {1} = {2}", x, y, result);
         }
 
+        static IEnumerable<int[]> TestCases()
+        {
+            for (int i = 0; i < 20; i++)
+            {
+                for (int j = 0; j < 20; j++)
+                {
+                    yield return new int[] { i, j };
+                }
+            }
+        }
+    }
+
+    [TestFixture]
+    public class TestOfProgramm
+    {
         [Test, TestCaseSource("TestCases")]
         public void multiplicationOperation(double x, double y)
         {
