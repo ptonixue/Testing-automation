@@ -3,16 +3,21 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using NLog;
 using NUnit.Framework;
+using NUnit.Framework.Internal;
 
 namespace NUnitTest
 {
     [TestFixture]
     public class TestOfMethods
     {
+        private static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
+
         [Test, TestCaseSource("TestCases")]
         public void multiplication(double x, double y)
         {
+            logger.Error("test file is created");
             Calculator.Methods operation = new Calculator.Methods();
             var result = operation.multiplication(x, y);
             Assert.AreEqual(x * y, result, "wrong test {0} * {1} = {2}", x, y, result);
