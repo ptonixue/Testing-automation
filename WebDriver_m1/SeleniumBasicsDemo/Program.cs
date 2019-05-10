@@ -40,7 +40,7 @@ namespace SelenimBasicsDemo
         }
 
         [Test]
-        public void step1()
+        public void Login()
         {
             //Проверка, что логин прошел успешно
             IWebElement newPostButton = driver.FindElement(By.CssSelector(".panel-container__newPost"));
@@ -48,7 +48,7 @@ namespace SelenimBasicsDemo
         }
 
         [Test]
-        public void step2()
+        public void NewPost()
         {
             //create new post
             driver.FindElement(By.XPath(".//a[@class='panel-container__newPost']")).Click();
@@ -65,7 +65,7 @@ namespace SelenimBasicsDemo
         }
 
         [Test]
-        public void step3()
+        public void Logout()
         {
             //logout
             driver.FindElement(By.XPath(".//button[@class='header-logout']")).Click();
