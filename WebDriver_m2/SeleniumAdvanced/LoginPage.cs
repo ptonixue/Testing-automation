@@ -37,7 +37,6 @@ namespace SeleniumAdvanced
         {
             passwordField.SendKeys(password);
             return this;
-
         }
 
         public LoginPage Login()

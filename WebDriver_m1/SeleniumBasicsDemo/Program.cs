@@ -52,14 +52,15 @@ namespace SelenimBasicsDemo
         {
             //create new post
             driver.FindElement(By.XPath(".//a[@class='panel-container__newPost']")).Click();
-            driver.FindElement(By.XPath(".//label[@class='post-edit__title']/child::input")).SendKeys("Заголовок статьи");
-            driver.FindElement(By.XPath(".//label[@class='post-edit__url']/child::input")).SendKeys("Ссылка");
+            driver.FindElement(By.XPath(".//label[@class='post-edit__title']/child::input")).SendKeys("New head");
+            driver.FindElement(By.XPath(".//label[@class='post-edit__url']/child::input")).SendKeys("Link");
             driver.FindElement(By.XPath(".//label/child::textarea")).SendKeys("Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, cum.");
             driver.FindElement(By.XPath(".//input[@value='Publish']")).Click();
 
             //Проверка, что пост создан успешно
             driver.Navigate().GoToUrl("http://192.168.99.100:3030");
-            IWebElement newPost = driver.FindElement(By.XPath(".//h2[text()='Заголовок статьи']"));
+            Thread.Sleep(3000);
+            IWebElement newPost = driver.FindElement(By.XPath(".//h2[text()='New head']"));
             Assert.IsTrue(newPost.Displayed, "New post is failed");
         }
 
