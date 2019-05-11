@@ -62,7 +62,7 @@ namespace SeleniumAdvanced
         {
             LoginPage loginPage = new LoginPage(driver);
 
-            Post post = TestPostGenerator.GeneratePostNum2();
+            Post post = TestPostGenerator.GeneratePost();
 
             PostFunctions postFunc = new PostFunctions(driver);
             postFunc.Post(post);
